@@ -1,0 +1,1110 @@
+{
+    "tables":
+    {
+        "services":
+        {
+            "rows":
+            {
+                "principal_services":
+                {
+                    "cells":
+                    [
+                        {
+                            "value": 0,
+                            "type": "percent"
+                        },
+                        {
+                            "value": 0.77,
+                            "type": "percent"
+                        },
+                        {
+                            "value": 0,
+                            "type": "percent"
+                        },
+                        {
+                            "value": "Principals Services",
+                            "type": "text"
+                        },
+                        {
+                            "value": 0,
+                            "type": "currency",
+                            "editable": true
+                        },
+                        {
+                            "value": 0,
+                            "type": "currency",
+                            "editable": true
+                        }
+                    ]
+                },
+                "associates_services":
+                {
+                    "cells":
+                    [
+                        {
+                            "value": 0,
+                            "type": "percent"
+                        },
+                        {
+                            "value": null,
+                            "type": "percent"
+                        },
+                        {
+                            "value": 0,
+                            "type": "percent"
+                        },
+                        {
+                            "value": "Associates Services",
+                            "type": "text"
+                        },
+                        {
+                            "value": 0,
+                            "type": "currency",
+                            "editable": true
+                        },
+                        {
+                            "value": 0,
+                            "type": "currency",
+                            "editable": true
+                        }
+                    ]
+                },
+                "hygienists_services":
+                {
+                    "cells":
+                    [
+                        {
+                            "value": 0,
+                            "type": "percent"
+                        },
+                        {
+                            "value": 0.23,
+                            "type": "percent"
+                        },
+                        {
+                            "value": 0,
+                            "type": "percent"
+                        },
+                        {
+                            "value": "Hygienists Services",
+                            "type": "text"
+                        },
+                        {
+                            "value": 0,
+                            "type": "currency",
+                            "editable": true
+                        },
+                        {
+                            "value": 0,
+                            "type": "currency",
+                            "editable": true
+                        }
+                    ]
+                },
+                "total_practice_yield":
+                {
+                    "cells":
+                    [
+                        {
+                            "value": null,
+                            "type": "percent"
+                        },
+                        {
+                            "value": null,
+                            "type": "percent"
+                        },
+                        {
+                            "value": null,
+                            "type": "percent"
+                        },
+                        {
+                            "value": "Total Practice Yield",
+                            "type": "text"
+                        },
+                        {
+                            "value": 0,
+                            "type": "currency"
+                        },
+                        {
+                            "value": 0,
+                            "type": "currency"
+                        }
+                    ],
+                    "preventSum": [4,5]
+                }
+            },
+            "columns":
+            {
+                "gross_yield":
+                {
+                    "sum": 0
+                },
+                "be":
+                {
+                    "sum": 0
+                },
+                "net_receipts":
+                {
+                    "sum": 0
+                },
+                "name":
+                {
+                    "sum": ""
+                },
+                "gross":
+                {
+                    "sum": 0
+                },
+                "net_adjusted":
+                {
+                    "sum": 0
+                }
+            }
+        },
+        "total_practice_receipts":
+        {
+            "rows":
+            {
+                "total_practice_yield":
+                {
+                    "cells":
+                    [
+                        {
+                            "value": 0,
+                            "type": "percent"
+                        },
+                        {
+                            "value": 0.97,
+                            "type": "percent"
+                        },
+                        {
+                            "value": 0,
+                            "type": "percent"
+                        },
+                        {
+                            "value": "Total Practice Receipts",
+                            "type": "text"
+                        },
+                        {
+                            "value": 0,
+                            "type": "percent"
+                        },
+                        {
+                            "value": 0,
+                            "type": "currency",
+                            "editable": true
+                        }
+                    ],
+                    "preventSum": [0,1,2,3,4,5]
+                }
+            },
+            "columns":
+            {
+                "receipts_as_%_of_gross_yield":
+                {
+                    "sum": 0
+                },
+                "be":
+                {
+                    "sum": 0
+                },
+                "receipts_as_%_of_net_yield":
+                {
+                    "sum": 0
+                },
+                "name":
+                {
+                    "sum": ""
+                },
+                "%_gross_practice_yield_adjusted":
+                {
+                    "sum": 0
+                },
+                "net_adjusted":
+                {
+                    "sum": 0
+                }
+            }
+        },
+        "variable_expenses":
+        {
+            "rows":
+            {
+                "clinical_supplies":
+                {
+                    "cells":
+                    [
+                        {
+                            "value": 0,
+                            "type": "percent"
+                        },
+                        {
+                            "value": 0.6,
+                            "type": "percent"
+                        },
+                        {
+                            "value": 0,
+                            "type": "percent"
+                        },
+                        {
+                            "value": "Clinical Supplies",
+                            "type": "text"
+                        },
+                        {
+                            "value": 0,
+                            "type": "currency",
+                            "editable": true
+                        }
+                    ]
+                },
+                "laboratory_fees":
+                {
+                    "cells":
+                    [
+                        {
+                            "value": 0,
+                            "type": "percent"
+                        },
+                        {
+                            "value": 0.10,
+                            "type": "percent"
+                        },
+                        {
+                            "value": 0,
+                            "type": "percent"
+                        },
+                        {
+                            "value": "Laboratory Fees",
+                            "type": "text"
+                        },
+                        {
+                            "value": 0,
+                            "type": "currency",
+                            "editable": true
+                        }
+                    ]
+                },
+                "associate_salary_benefits":
+                {
+                    "cells":
+                    [
+                        {
+                            "value": 0,
+                            "type": "percent"
+                        },
+                        {
+                            "value": null,
+                            "type": "percent"
+                        },
+                        {
+                            "value": 0,
+                            "type": "percent"
+                        },
+                        {
+                            "value": "Associate Salary & Benefits",
+                            "type": "text"
+                        },
+                        {
+                            "value": 0,
+                            "type": "currency"
+                        }
+                    ],
+                    "details":
+                    [
+                        {
+                            "name": "Salary",
+                            "value": 0
+                        },
+                        {
+                            "name": "Payroll Taxes",
+                            "value": 0
+                        },
+                        {
+                            "name": "Unemployment",
+                            "value": 0
+                        },
+                        {
+                            "name": "Retirement Plan",
+                            "value": 0
+                        },
+                        {
+                            "name": "Health & Other Insurance",
+                            "value": 0
+                        },
+                        {
+                            "name": "Continuing Education",
+                            "value": 0
+                        },
+                        {
+                            "name": "Gain Sharing",
+                            "value": 0
+                        },
+                        {
+                            "name": "Other",
+                            "value": 0
+                        }
+                    ]
+                },
+                "hygiene_salary_benefits":
+                {
+                    "cells":
+                    [
+                        {
+                            "value": 0,
+                            "type": "percent"
+                        },
+                        {
+                            "value": 0.9,
+                            "type": "percent"
+                        },
+                        {
+                            "value": 0,
+                            "type": "percent"
+                        },
+                        {
+                            "value": "Hygiene Salary & Benefits",
+                            "type": "text"
+                        },
+                        {
+                            "value": 0,
+                            "type": "currency"
+                        }
+                    ],
+                    "details":
+                    [
+                        {
+                            "name": "Salary",
+                            "value": 0
+                        },
+                        {
+                            "name": "Payroll Taxes",
+                            "value": 0
+                        },
+                        {
+                            "name": "Unemployment",
+                            "value": 0
+                        },
+                        {
+                            "name": "Retirement Plan",
+                            "value": 0
+                        },
+                        {
+                            "name": "Health & Other Insurance",
+                            "value": 0
+                        },
+                        {
+                            "name": "Uniform Allowance",
+                            "value": 0
+                        },
+                        {
+                            "name": "Continuing Education",
+                            "value": 0
+                        },
+                        {
+                            "name": "Gain Sharing",
+                            "value": 0
+                        },
+                        {
+                            "name": "Hygiene Temp",
+                            "value": 0
+                        },
+                        {
+                            "name": "Other",
+                            "value": 0
+                        }
+                    ]
+                }
+            },
+            "columns":
+            {
+                "gross_yield":
+                {
+                    "sum": 0
+                },
+                "be":
+                {
+                    "sum": 0
+                },
+                "net_receipts":
+                {
+                    "sum": 0
+                },
+                "name":
+                {
+                    "sum": ""
+                },
+                "net_adjusted":
+                {
+                    "sum": 0
+                }
+            }
+        },
+        "fixed_expenses":
+        {
+            "rows":
+            {
+                "principals_salary_benefits":
+                {
+                    "cells":
+                    [
+                        {
+                            "value": 0,
+                            "type": "percent"
+                        },
+                        {
+                            "value": 0.34,
+                            "type": "percent"
+                        },
+                        {
+                            "value": 0,
+                            "type": "percent"
+                        },
+                        {
+                            "value": "Principals Salary & Benefits",
+                            "type": "text"
+                        },
+                        {
+                            "value": 0,
+                            "type": "currency"
+                        }
+                    ],
+                    "details":
+                    [
+                        {
+                            "name": "Salary",
+                            "value": 0
+                        },
+                        {
+                            "name": "Payroll Taxes",
+                            "value": 0
+                        },
+                        {
+                            "name": "Unemployment",
+                            "value": 0
+                        },
+                        {
+                            "name": "Retirement Plan",
+                            "value": 0
+                        },
+                        {
+                            "name": "Continuing Education",
+                            "value": 0
+                        },
+                        {
+                            "name": "Travel Expenses",
+                            "value": 0
+                        },
+                        {
+                            "name": "Car Expenses",
+                            "value": 0
+                        },
+                        {
+                            "name": "Uniform Allowance",
+                            "value": 0
+                        },
+                        {
+                            "name": "Insurance - Disability",
+                            "value": 0
+                        },
+                        {
+                            "name": "Insurance - Life",
+                            "value": 0
+                        },
+                        {
+                            "name": "Insurance - Major Medical",
+                            "value": 0
+                        },
+                        {
+                            "name": "Insurance - Professional Liability",
+                            "value": 0
+                        },
+                        {
+                            "name": "Other Unspecified Officer Perks",
+                            "value": 0
+                        },
+                        {
+                            "name": "Associate Practice ROI",
+                            "value": 0,
+                            "editable": false
+                        },
+                        {
+                            "name": "Gain Sharing",
+                            "value": 0
+                        },
+                        {
+                            "name": "Other",
+                            "value": 0
+                        }
+                    ]
+                },
+                "clincal_staff_salary_benefits":
+                {
+                    "cells":
+                    [
+                        {
+                            "value": 0,
+                            "type": "percent"
+                        },
+                        {
+                            "value": 0.10,
+                            "type": "percent"
+                        },
+                        {
+                            "value": 0,
+                            "type": "percent"
+                        },
+                        {
+                            "value": "Clinical Staff Salary Benefits",
+                            "type": "text"
+                        },
+                        {
+                            "value": 0,
+                            "type": "currency"
+                        }
+                    ],
+                    "details":
+                    [
+                        {
+                            "name": "Salary",
+                            "value": 0
+                        },
+                        {
+                            "name": "Payroll Taxes",
+                            "value": 0
+                        },
+                        {
+                            "name": "Unemployment",
+                            "value": 0
+                        },
+                        {
+                            "name": "Retirement Plan",
+                            "value": 0
+                        },
+                        {
+                            "name": "Health & Other Insurance",
+                            "value": 0
+                        },
+                        {
+                            "name": "Uniform Allowance",
+                            "value": 0
+                        },
+                        {
+                            "name": "Continuing Education",
+                            "value": 0
+                        },
+                        {
+                            "name": "Part-time Help",
+                            "value": 0
+                        },
+                        {
+                            "name": "Gain Sharing",
+                            "value": 0
+                        },
+                        {
+                            "name": "Other",
+                            "value": 0
+                        }
+                    ]
+                },
+                "admin_staff_salary_benefits":
+                {
+                    "cells":
+                    [
+                        {
+                            "value": 0,
+                            "type": "percent"
+                        },
+                        {
+                            "value": 0.11,
+                            "type": "percent"
+                        },
+                        {
+                            "value": 0,
+                            "type": "percent"
+                        },
+                        {
+                            "value": "Admin. Staff Salary & Benefits",
+                            "type": "text"
+                        },
+                        {
+                            "value": 0,
+                            "type": "currency"
+                        }
+                    ],
+                    "details":
+                    [
+                        {
+                            "name": "Salary",
+                            "value": 0
+                        },
+                        {
+                            "name": "Payroll Taxes",
+                            "value": 0
+                        },
+                        {
+                            "name": "Unemployment",
+                            "value": 0
+                        },
+                        {
+                            "name": "Retirement Plan",
+                            "value": 0
+                        },
+                        {
+                            "name": "Health & Other Insurance",
+                            "value": 0
+                        },
+                        {
+                            "name": "Uniform Allowance",
+                            "value": 0
+                        },
+                        {
+                            "name": "Continuing Education",
+                            "value": 0
+                        },
+                        {
+                            "name": "Part-time Help",
+                            "value": 0
+                        },
+                        {
+                            "name": "Gain Sharing",
+                            "value": 0
+                        },
+                        {
+                            "name": "Other",
+                            "value": 0
+                        }
+                    ]
+                },
+                "facility_expense":
+                {
+                    "cells":
+                    [
+                        {
+                            "value": 0,
+                            "type": "percent"
+                        },
+                        {
+                            "value": 0.7,
+                            "type": "percent"
+                        },
+                        {
+                            "value": 0,
+                            "type": "percent"
+                        },
+                        {
+                            "value": "Facility Expense",
+                            "type": "text"
+                        },
+                        {
+                            "value": 0,
+                            "type": "currency"
+                        }
+                    ],
+                    "details":
+                    [
+                        {
+                            "name": "Rent",
+                            "value": 0
+                        },
+                        {
+                            "name": "Repair/Maintenance",
+                            "value": 0
+                        },
+                        {
+                            "name": "Utilities",
+                            "value": 0
+                        },
+                        {
+                            "name": "Office Decor",
+                            "value": 0
+                        }
+                    ]
+                },
+                "admin_services_supplies":
+                {
+                    "cells":
+                    [
+                        {
+                            "value": 0,
+                            "type": "percent"
+                        },
+                        {
+                            "value": 0.11,
+                            "type": "percent"
+                        },
+                        {
+                            "value": 0,
+                            "type": "percent"
+                        },
+                        {
+                            "value": "Admin. Services & Supplies",
+                            "type": "text"
+                        },
+                        {
+                            "value": 0,
+                            "type": "currency"
+                        }
+                    ],
+                    "details":
+                    [
+                        {
+                            "name": "Bank/Credit",
+                            "value": 0
+                        },
+                        {
+                            "name": "Dues & Subscriptions",
+                            "value": 0
+                        },
+                        {
+                            "name": "Insurance",
+                            "value": 0
+                        },
+                        {
+                            "name": "Laundry",
+                            "value": 0
+                        },
+                        {
+                            "name": "Office Supplies",
+                            "value": 0
+                        },
+                        {
+                            "name": "Postage",
+                            "value": 0
+                        },
+                        {
+                            "name": "Accounting & Legal Fees",
+                            "value": 0
+                        },
+                        {
+                            "name": "Consulting",
+                            "value": 0
+                        },
+                        {
+                            "name": "Telephone",
+                            "value": 0
+                        },
+                        {
+                            "name": "Business Taxes & License Fees",
+                            "value": 0
+                        },
+                        {
+                            "name": "Printing",
+                            "value": 0
+                        },
+                        {
+                            "name": "Contributions",
+                            "value": 0
+                        },
+                        {
+                            "name": "Practice Promotion",
+                            "value": 0
+                        },
+                        {
+                            "name": "Computer Supplies",
+                            "value": 0
+                        },
+                        {
+                            "name": "Miscellaneous",
+                            "value": 0
+                        }
+                    ]
+                },
+                "net_operating_income":
+                {
+                    "cells":
+                    [
+                        {
+                            "value": 0,
+                            "type": "percent"
+                        },
+                        {
+                            "value": 0.4,
+                            "type": "percent"
+                        },
+                        {
+                            "value": 0,
+                            "type": "percent"
+                        },
+                        {
+                            "value": "Net Operating Income",
+                            "type": "text"
+                        },
+                        {
+                            "value": 0,
+                            "type": "currency"
+                        }
+                    ],
+                    "preventSum": [4]
+                }
+            },
+            "columns":
+            {
+                "gross_yield":
+                {
+                    "sum": 0
+                },
+                "be":
+                {
+                    "sum": 0
+                },
+                "net_receipts":
+                {
+                    "sum": 0
+                },
+                "name":
+                {
+                    "sum": ""
+                },
+                "net_adjusted":
+                {
+                    "sum": 0
+                }
+            }
+        },
+        "non-operating_expenses":
+        {
+            "rows":
+            {
+                "other_income":
+                {
+                    "cells":
+                    [
+                        {
+                            "value": null,
+                            "type": "percent"
+                        },
+                        {
+                            "value": null,
+                            "type": "percent"
+                        },
+                        {
+                            "value": null,
+                            "type": "percent"
+                        },
+                        {
+                            "value": "Other Income",
+                            "type": "text"
+                        },
+                        {
+                            "value": 0,
+                            "type": "currency",
+                            "editable": true
+                        }
+                    ]
+                },
+                "other_expense":
+                {
+                    "cells":
+                    [
+                        {
+                            "value": null,
+                            "type": "percent"
+                        },
+                        {
+                            "value": null,
+                            "type": "percent"
+                        },
+                        {
+                            "value": null,
+                            "type": "percent"
+                        },
+                        {
+                            "value": "Other Expense",
+                            "type": "text"
+                        },
+                        {
+                            "value": 0,
+                            "type": "currency",
+                            "editable": true
+                        }
+                    ]
+                },
+                "interest_expense":
+                {
+                    "cells":
+                    [
+                        {
+                            "value": null,
+                            "type": "percent"
+                        },
+                        {
+                            "value": null,
+                            "type": "percent"
+                        },
+                        {
+                            "value": null,
+                            "type": "percent"
+                        },
+                        {
+                            "value": "Interest Expense",
+                            "type": "text"
+                        },
+                        {
+                            "value": 0,
+                            "type": "currency",
+                            "editable": true
+                        }
+                    ]
+                },
+                "capital_equipment_lease":
+                {
+                    "cells":
+                    [
+                        {
+                            "value": null,
+                            "type": "percent"
+                        },
+                        {
+                            "value": null,
+                            "type": "percent"
+                        },
+                        {
+                            "value": null,
+                            "type": "percent"
+                        },
+                        {
+                            "value": "Capital Equipment Lease",
+                            "type": "text"
+                        },
+                        {
+                            "value": 0,
+                            "type": "currency",
+                            "editable": true
+                        }
+                    ]
+                },
+                "principal_loan_payments_small_equipment":
+                {
+                    "cells":
+                    [
+                        {
+                            "value": null,
+                            "type": "percent"
+                        },
+                        {
+                            "value": null,
+                            "type": "percent"
+                        },
+                        {
+                            "value": null,
+                            "type": "percent"
+                        },
+                        {
+                            "value": "Principal Loan Payments Small Equipment",
+                            "type": "text"
+                        },
+                        {
+                            "value": 0,
+                            "type": "currency",
+                            "editable": true
+                        }
+                    ]
+                },
+                "profit":
+                {
+                    "cells":
+                    [
+                        {
+                            "value": 0,
+                            "type": "percent"
+                        },
+                        {
+                            "value": 0,
+                            "type": "percent"
+                        },
+                        {
+                            "value": 0,
+                            "type": "percent"
+                        },
+                        {
+                            "value": "Profit",
+                            "type": "text"
+                        },
+                        {
+                            "value": 0,
+                            "type": "currency"
+                        }
+                    ],
+                    "preventSum": [0,1,2,3,4]
+                }
+            },
+            "columns":
+            {
+                "gross_yield":
+                {
+                    "sum": 0
+                },
+                "be":
+                {
+                    "sum": 0
+                },
+                "net_receipts":
+                {
+                    "sum": 0
+                },
+                "name":
+                {
+                    "sum": ""
+                },
+                "net_adjusted":
+                {
+                    "sum": 0
+                }
+            }
+        },
+        "statistics":
+        {
+            "rows":
+            {
+                "hygiene_salary_benefits_services":
+                {
+                    "cells":
+                    [
+                        {
+                            "value": 0,
+                            "type": "percent"
+                        },
+                        {
+                            "value": 0,
+                            "type": "percent"
+                        },
+                        {
+                            "value": "Hygiene Salary & Benefits/ Hygiene Services",
+                            "type": "text"
+                        }
+                    ],
+                    "preventSum": [0,1,2]
+                }
+            },
+            "columns":
+            {
+                "gross_yield":
+                {
+                    "sum": 0
+                },
+                "net_receipts":
+                {
+                    "sum": 0
+                },
+                "name":
+                {
+                    "sum": ""
+                }
+            }
+        }
+    },
+    "misc":
+    {
+        "operating_efficiency":
+        {
+            "percent": 0,
+            "net_adjusted": 0
+        },
+        "operating_efficiency_potential": 0,
+        "potential_increase":
+        {
+            "percent": 0,
+            "net_adjusted": 0
+        }
+    }
+}
