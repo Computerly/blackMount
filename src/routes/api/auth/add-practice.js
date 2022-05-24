@@ -2,7 +2,7 @@
 // *              Creates a new user with an associated practice              *
 // ****************************************************************************
 
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import crypto from "crypto";
 import BLANK_PRACTICE from "$lib/blank_practice.json";
 import { supabase } from "$lib/supabase";

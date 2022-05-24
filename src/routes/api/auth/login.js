@@ -1,15 +1,13 @@
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import crypto from "crypto";
 import * as cookie from 'cookie';
 import { supabase } from "$lib/supabase";
 /**
  * home@street.com
- * Cvo761721! || old f%^ecX3*Y2&Wd14Z
  * admin
  * 
  * apart@road.com
- * Cvo761721! || old %UTSxR45z#2@w$3y
- * $2b$10$dPhbfTRP3lJymq1OTyqdYuo8L5X2D/B.SKcPxghudcl05vaW7FmvO
+
  * */
 
 export async function post({request}) {

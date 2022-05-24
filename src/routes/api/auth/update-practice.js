@@ -4,7 +4,7 @@
 	delete practice
 */
 
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import crypto from "crypto";
 import * as cookie from 'cookie';
 import { supabase } from "$lib/supabase";
