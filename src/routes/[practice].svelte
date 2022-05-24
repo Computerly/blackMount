@@ -737,8 +737,8 @@
 	details summary:focus { outline: none; }
 	details > summary:hover:after{
 		content: url("icons/chevron_right.svg");
-	/*	height: 1rem;
-		width: 1rem;*/
+		height: 1rem;
+		width: 1rem;
 		position: absolute;
 		right: 1em;
 		top: 50%;
