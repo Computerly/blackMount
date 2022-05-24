@@ -23,7 +23,7 @@
 			<p>{message}</p>
 		</div>
 
-		<button on:click={() => {goto("/");}}>Take me home</button>
+		<a href="/">Take me home</a>
 	</div>
 </div>
 
@@ -40,12 +40,13 @@
 		flex-direction: column;
 		justify-content: space-between;
 	}
-	button{
+	a{
 		background-color: blue;
 		border: none;
 		border-radius: 2rem;
 		padding: 0.5rem 2rem;
 		color: white;
 		cursor: pointer;
+		text-decoration: none;
 	}
 </style>
