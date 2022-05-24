@@ -42,7 +42,6 @@
 							.from("practices_data")
 							.select("data, start_date, end_date, practice_name, updated_at")
 							.match({"uuid": $page.params.practice});
-		//console.log(data);
 		locationData.set(data[0]);
 	}
 	
@@ -119,7 +118,6 @@
 		password_errors = [];
 		if(newPassword != confirmPassword){
 			password_errors = [...password_errors, "Passwords do not match!"];
-			console.error("password mismatch");
 		}else if(!validatePassword(newPassword)){
 			password_errors = [...password_errors, "Invalid Password! Password must contain upper and lower case letters, numbers, symbols, and be at least 10 characters long"];
 		}else{
@@ -135,7 +133,6 @@
 			});
 
 			if(res.ok){
-				console.log("updated passwords successfully");
 				newPassword = confirmPassword = "";
 			}else{
 				let jsonData = res.json();

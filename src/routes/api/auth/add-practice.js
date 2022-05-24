@@ -69,10 +69,7 @@ export async function post({locals, request}){
 		.select("email")
 		.match({email: params.email});
 
-	console.log(emails);
-
 	if(emails.data[0]){
-		console.log("Email exitsts!");
 		errors.push("Email already exists");
 		return{
 			status: 400,
@@ -82,8 +79,6 @@ export async function post({locals, request}){
 			}
 		};
 	}
-
-	//console.log(`email exists: ${await emailExists}\nemail error: ${await emailError}`);
 
 	// Number of params are correct and valid password
 	let uuid = crypto.randomUUID();
@@ -129,7 +124,7 @@ export async function post({locals, request}){
 			}]);
 		if(practiceError){ console.error(practiceError); errors.push(practiceError); }
 	}
-	console.log("here");
+
 	if(errors.length == 0){
 		return{
 			status: 200,

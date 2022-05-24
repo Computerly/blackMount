@@ -67,12 +67,11 @@ export async function put({locals, request}){
 			}
 		};
 	}else if(params.hasOwnProperty("data") && params.hasOwnProperty("start_date") && params.hasOwnProperty("end_date")){
-		console.log(params.uuid);
 		const data = await supabase
 		.from("practices_data")
 		.update({data: params.data, start_date: params.start_date, end_date: params.end_date})
 		.match({uuid: params.uuid});
-		console.log(JSON.stringify(data.data[0].data));
+
 		if(data.data[0]){
 			return{
 				status: 200,
