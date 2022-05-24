@@ -1,4 +1,6 @@
 ## Todo
+- Reset practice
+- Delete practice
 - improve validate to prevent multiple periods or commas
 - Parse float may not be nessasary (in relationships)
 - color pallet

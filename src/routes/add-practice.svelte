@@ -121,10 +121,10 @@
 						<h3 on:click={copyToClipboard} title="Copy Password">
 							{temp_password}
 							{#if copied}
-								<img  class="icon copied-icon" src="icons/check.svg" in:fade="{{ duration: 400 }}" out:fade="{{duration:100}}">
+								<img class="icon copied-icon" src="icons/check.svg" in:fade="{{ duration: 400 }}" out:fade="{{duration:100}}" alt="check">
 								<p class="copied-msg" in:fly="{{ y: 10, duration: 400 }}" out:fade>Copied!</p>
 							{:else}
-								<img class:copied={copied} class="icon copy-icon" src="icons/content_copy.svg" in:fade="{{delay:50, duration:200}}">
+								<img class:copied={copied} class="icon copy-icon" src="icons/content_copy.svg" in:fade="{{delay:50, duration:200}}" alt="copy">
 							{/if}
 						</h3>
 
@@ -263,9 +263,5 @@
 		width: 100%;
 		padding: 1rem;
 		font-weight: 600;
-	}
-	.danger{
-		color: red;
-		text-align: center;
 	}
 </style>

@@ -61,7 +61,7 @@
 	<div class="container">
 		<div class="text">
 			<div>
-				<img src="icons/tooth.svg">
+				<img src="icons/tooth.svg" alt="tooth logo">
 				<h1>MIS Portal</h1>
 				<p>Sign in to continue</p>
 			</div>

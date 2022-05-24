@@ -101,7 +101,7 @@
 			{#each filteredPractices as practice, idx}
 				<div class="practice" on:click|self={goto(practice.uuid)}>
 					<h1>{practice.practice_name}</h1>
-					<button class="settings" on:click={() => {showModal(idx);}}><img src="icons/cogwheel.svg" class="settings-icon"></button>
+					<button class="settings" on:click={() => {showModal(idx);}}><img src="icons/cogwheel.svg" class="settings-icon" alt="settings"></button>
 					<p class="light-info">Last updated: {formatTime(practice.updated_at)}</p>
 				</div>
 			{/each}
@@ -120,9 +120,9 @@
 				<p class="light-info">Last updated: {formatTime(filteredPractices[modal_index].updated_at)}</p>
 			</div>
 			<div class="settings-list">
-				<button><img src="icons/access-key.svg" class="icon"><span>Change Password</span></button>
-				<button><img src="icons/undo.svg" class="icon"><span>Reset Practice</span></button>
-				<button style="color:red"><img src="icons/trash-can.svg" class="icon"><span>Delete Practice</span></button>
+				<button><img src="icons/access-key.svg" class="icon" alt="key"><span>Change Password</span></button>
+				<button><img src="icons/undo.svg" class="icon" alt="undo"><span>Reset Practice</span></button>
+				<button style="color:red"><img src="icons/trash-can.svg" class="icon" alt="delete"><span>Delete Practice</span></button>
 			</div>
 
 		</div>
@@ -136,11 +136,11 @@
 			<form on:submit|preventDefault={updatePassword}>
 				<div class="rows">
 					<div class="row">
-						<label>Password</label>
+						<label for="new-password">Password</label>
 						<input type="password" name="new-password" bind:value={newPassword} autocomplete="new-password">
 					</div>
 					<div class="row">
-						<label>Confirm Password</label>
+						<label for="confirm-password">Confirm Password</label>
 						<input type="password" name="confirm-password" bind:value={confirmPassword} autocomplete="new-password">
 					</div>
 					{#each password_errors as error}
