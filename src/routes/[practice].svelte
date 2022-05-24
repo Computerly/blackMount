@@ -798,6 +798,7 @@
 		.side-bar{
 			flex-direction: row;
 			padding-bottom: 0;
+			height: min-content;
 		}
 		.data{ padding: 50px;/*padding-bottom: 0;*/ }
 		
