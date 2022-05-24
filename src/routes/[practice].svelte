@@ -141,16 +141,25 @@
 		}
 	}
 
-	async function resetPractice(){
+	async function resetPractice(e){
 		const res = await fetch('/api/auth/update-practice', {
 			method: "POST",
 			body: JSON.stringify({
-				reset: true
+				reset: true,
+				uuid
 			}),
 			headers: {
 			  'Content-Type': 'application/json'
 			}
 		});
+		if(res.ok){
+			console.log("reset practice");
+			window.location.reload();
+			e.target.closest("details").removeAttribute("open");
+		}else{
+			let jsonData = await res.json();
+			console.error(jsonData);
+		}
 	}
 	function closeDetails(e){
 		e.target.closest("details").removeAttribute("open");
@@ -288,9 +297,9 @@
 						<p>Updated at: {$locationData.updated_at.split('T')[0]}</p>
 					</div>
 				</div>
+				<button class="save" on:click={save}><img src="icons/floppy-disk.svg" class="icon settings-icon" alt="save" title="Save"></button>
 			{/if}
 			<button class="print" onclick="window.print()"><img src="icons/print.svg" class="icon settings-icon" alt="print" title="Print"></button>
-			<button class="save" on:click={save}><img src="icons/floppy-disk.svg" class="icon settings-icon" alt="save" title="Save"></button>
 		</div>
 
 	</div><!-- END OF SIDE BAR -->

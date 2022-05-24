@@ -98,6 +98,7 @@ export async function put({locals, request}){
 }
 
 export async function del({locals, request}){
+	console.log("delete");
 	/* Delete practice */
 	if(locals.user.authenticated == false || locals.user.isAdmin == false){
 		return{
@@ -108,8 +109,27 @@ export async function del({locals, request}){
 		}
 	}
 
-	/* TODO */
+	let errors = [];
+	let params = await request.json();
 
+	if(!params.hasOwnProperty("uuid")){
+			return{
+				status: 400,
+				body:{
+					message: "Invalid arguments passed to update"
+				}
+			};
+		}
+
+	const usersDel = await supabase.from("users").delete().eq('uuid', params.uuid);
+	const practiceDel = await supabase.from("practices_data").delete().eq('uuid', params.uuid); /* May or may not occur if user is admin */
+
+	return{
+		status: 200,
+		body:{
+			message: "Remove!"
+		}
+	}
 }
 
 export async function post({locals, request}) {
@@ -133,31 +153,41 @@ export async function post({locals, request}) {
 			return{
 				status: 400,
 				body:{
-					message: "Invalid arguments passed to update"
+					message: "Invalid arguments passed to update",
+					error: ["Invalid arguments passed to update"]
 				}
 			};
 		}
 
-		const {data, error} = await supabase
+		const res = await supabase
 			.from("practices_data")
 			.update({data: BLANK_PRACTICE})
 			.match({uuid: params.uuid});
 
-		if(!err && data[0]){
+		if(res.data[0]){
 			return{
 				status: 200,
 				body:{
 					message: "Success"
 				}
 			};
-		}else{
+		}
+		else{
+			errors.push("Something went wrong resetting practice");
 			return{
 				status: 400,
 				body:{
-					message:"Something went wrong resetting practice"
+					message:"Something went wrong resetting practice",
+					error: errors
 				}
 			};
 		}
 
+	}
+	return{
+		status: 400,
+		body:{
+			message: "Invalid args"
+		}
 	}
 }

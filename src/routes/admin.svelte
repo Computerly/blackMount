@@ -60,7 +60,6 @@
 		password_errors = [];
 		if(newPassword != confirmPassword){
 			password_errors = [...password_errors, "Passwords do not match!"];
-			console.error("password mismatch");
 		}else if(!validatePassword(newPassword)){
 			password_errors = [...password_errors, "Invalid Password! Password must contain upper and lower case letters, numbers, symbols, and be at least 10 characters long"];
 		}else{
@@ -76,7 +75,6 @@
 			});
 
 			if(res.ok){
-				console.log("updated passwords successfully");
 				newPassword = confirmPassword = "";
 				modifyingPassword = false;
 			}else{
@@ -85,6 +83,85 @@
 			}
 		}
 	}
+	function closeDetails(e){
+		e.target.closest("details").removeAttribute("open");
+	}
+	
+	let targetPractice;
+	let newPracticePassword, confirmPracticePassword, practice_password_errors = [];
+	
+	async function updatePracticePassword(){
+		targetPractice = filteredPractices[modal_index].uuid;
+
+		practice_password_errors = [];
+		if(newPracticePassword != confirmPracticePassword){
+			practice_password_errors = [...practice_password_errors, "Passwords do not match!"];
+		}else if(!validatePassword(newPracticePassword)){
+			practice_password_errors = [...practice_password_errors, "Invalid Password! Password must contain upper and lower case letters, numbers, symbols, and be at least 10 characters long"];
+		}else{
+			const res = await fetch('/api/auth/update-practice', {
+				method: "PUT",
+				body: JSON.stringify({
+					new_password: newPracticePassword,
+					uuid: targetPractice
+				}),
+				headers: {
+				  'Content-Type': 'application/json'
+				}
+			});
+
+			if(res.ok){
+				newPracticePassword = confirmPracticePassword = "";
+				modal_isVisable = false;
+			}else{
+				let jsonData = res.json();
+				console.log(jsonData);
+			}
+		}
+	}
+	async function resetPractice(){
+		targetPractice = filteredPractices[modal_index].uuid;
+
+		const res = await fetch('/api/auth/update-practice', {
+			method: "POST",
+			body: JSON.stringify({
+				reset: true,
+				uuid: targetPractice
+			}),
+			headers: {
+			  'Content-Type': 'application/json'
+			}
+		});
+
+		if(res.ok){
+			modal_isVisable = false;
+			window.location.reload();
+		}else{
+			let jsonData = await res.json();
+			console.log(jsonData);
+		}
+	}
+	async function deletePractice(){
+		targetPractice = filteredPractices[modal_index].uuid;
+
+		const res = await fetch('/api/auth/update-practice', {
+			method: "DELETE",
+			body: JSON.stringify({
+				uuid: targetPractice
+			}),
+			headers: {
+			  'Content-Type': 'application/json'
+			}
+		});
+		if(res.ok){
+			modal_isVisable = false;
+			window.location.reload();
+		}else{
+			let jsonData = await res.json();
+			console.log(jsonData);
+		}
+	}
+
 </script>
 <div class="wrapper">
 	<div class="side-bar">
@@ -120,9 +197,57 @@
 				<p class="light-info">Last updated: {formatTime(filteredPractices[modal_index].updated_at)}</p>
 			</div>
 			<div class="settings-list">
-				<button><img src="icons/access-key.svg" class="icon" alt="key"><span>Change Password</span></button>
-				<button><img src="icons/undo.svg" class="icon" alt="undo"><span>Reset Practice</span></button>
-				<button style="color:red"><img src="icons/trash-can.svg" class="icon" alt="delete"><span>Delete Practice</span></button>
+				<details>
+					<summary>
+						<img src="icons/access-key.svg" class="icon" alt="key"><span>Change Password</span>
+					</summary>
+					<div class="details-container">
+						<form on:submit|preventDefault={updatePracticePassword}>
+							<div class="rows">
+								<div class="row">
+									<label for="new-password">Password</label>
+									<input type="password" name="new-password" bind:value={newPracticePassword} autocomplete="new-password">
+								</div>
+								<div class="row">
+									<label for="confirm-password">Confirm Password</label>
+									<input type="password" name="confirm-password" bind:value={confirmPracticePassword} autocomplete="new-password">
+								</div>
+								
+								{#each practice_password_errors as error}
+									<p style="color:Red">{error}</p>
+								{/each}
+							</div>
+							<div class="reset-buttons">
+								<button type="submit" style="background-color:blue">Update</button>
+							</div>
+						</form>
+					</div>
+				</details>
+
+				<details>
+					<summary>
+						<img src="icons/undo.svg" class="icon" alt="reset"> Reset
+					</summary>
+					<div class="details-container">
+						<p class="danger">Are you sure you wish to reset this practice? This cannot be undone.</p>
+						<div class="reset-buttons">
+							<button class="reset" on:click={resetPractice} style="background-color: red;">Reset</button>
+							<button on:click={closeDetails}>Cancel</button>
+						</div>
+					</div>
+				</details>
+				<details>
+					<summary>
+						<img src="icons/trash-can.svg" class="icon" alt="delete"><span>Delete Practice</span>
+					</summary>
+					<div class="details-container">
+						<p>Are you sure you wish to delete this practice? This cannot be undone.</p>
+						<div class="row reset-buttons">
+							<button style="background-color: red;" on:click={deletePractice}>Delete</button>
+							<button on:click={closeDetails}>Cancel</button>
+						</div>
+					</div>
+				</details>
 			</div>
 
 		</div>
@@ -193,11 +318,6 @@
 		border-radius: 99999px;
 		overflow: hidden;
 		padding: 0rem 2rem;
-		/*position: fixed;
-		top: 5vh;
-		left: 50%;
-		transform: translate(-50%,0);
-		z-index: 100;*/
 		display: flex;
 		align-items: center;
 	}
@@ -345,13 +465,15 @@
 		left: 50%;
 		/*aspect-ratio: 1 / 1.2;
 		max-width: ;*/
+		min-width: 35vw;
+		aspect-ratio: 1 / 0.8;
 		background-color: white;
 		border-radius: 2rem;
 		box-shadow: 4px 4px 15px 2px rgba(0,0,0,0.25);
 		padding: 1rem 2rem;
 		display: flex;
 		flex-direction: column;
-		justify-content: space-between;
+		justify-content: flex-start;
 		align-items: center;
 	}
 	.content p{
@@ -361,15 +483,14 @@
 	.settings-list{
 		display: flex;
 		flex-direction: column;
-		/*gap: 0.5rem;*/
+		gap: 0.5rem;
 		align-items: flex-start;
+		width: 100%;
 	}
 	.settings-list button{
 		font-size: 1rem;
 		background: none;
 		border: none;
-		display: flex;
-		align-items: baseline;
 		padding: 0;
 		cursor: pointer;
 		padding: 0.5rem 1rem;
@@ -383,9 +504,9 @@
 		margin-right: 1ch;
 
 	}
-	.settings-list button:last-child .icon{
+/*	.settings-list button:last-child .icon{
 		filter: brightness(0) saturate(100%) invert(44%) sepia(90%) saturate(7467%) hue-rotate(352deg) brightness(115%) contrast(137%);
-	}
+	}*/
 
 	.side-bar{
 		/*position: fixed;
@@ -411,5 +532,110 @@
 	}
 	.side-bar .icon{
 		margin: 0;
+	}
+
+
+	details summary{ 
+		position: relative;
+		cursor: pointer;
+		padding: 0.5rem 2rem;
+		user-select: none;
+	}
+	details summary:hover{
+		background-color: lightgray;
+	}
+	details summary {
+		list-style: none;
+		background-color: #EAEAEA;
+		cursor: pointer;
+		transform-origin: center center;
+	}
+	details[open].internal summary{ filter: brightness(0.8); }
+	details summary:focus { outline: none; }
+	details > summary:hover:after{
+		content: url("icons/chevron_right.svg");
+	/*	height: 1rem;
+		width: 1rem;*/
+		position: absolute;
+		right: 1em;
+		top: 50%;
+		transition: all ease 0.25s;
+		transform: translate(0, -50%);
+	}
+	details[open] > summary:after{
+		transform: translate(50%, -50%) rotate(90deg);
+	}
+
+	.reset,
+	.delete{
+		width: 100%;
+	}
+
+	.details-container{
+		padding: 1rem 2rem;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		align-items: flex-start;
+	}
+	.details-container button{
+		align-self: center;
+		background-color: blue;
+		padding: 0.5rem 2rem;
+		color: white;
+		border-radius: 2rem;
+	}
+	.details-container input[type=password]{
+		border: none;
+		border-radius: 2rem;
+		height: 2rem;
+		padding: 0 1rem;
+	}
+	details{
+		width: 100%;
+		background-color: #ddd;
+		
+	}
+
+	summary{
+		width: 100%;
+		padding: 1rem 2rem;
+		
+	}
+	form{
+		width: 100%;
+	}
+	.row{
+		width: 100%;
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-between;
+		align-items: center;
+		gap: 1rem;
+	}
+	.row label{
+		min-width: 16ch;
+	}
+	.rows{
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		width: 100%;
+	}
+	.reset-buttons{
+		display: flex;
+		flex-flow: row nowrap;
+		gap: 1rem;
+		width: 100%;
+		align-items: center;
+		justify-content: center;
+		padding: 1rem 0;
+
+	}
+	.reset-buttons button{
+		background-color: #aaa;
+		padding: 0.5rem 2rem;
+		border-radius: 2rem;
+		width: min-content;
 	}
 </style>
