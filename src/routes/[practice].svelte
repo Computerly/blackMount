@@ -193,6 +193,13 @@
 	function updateEndTime(e){
 		$locationData.end_date = e.target.value + "T00:00:00";
 	}
+	function hideColumn(e, idx){
+		// for each child p
+		console.log(idx);
+		let elements = e.target.closest("details").querySelectorAll(`.body p:nth-child(${idx+1})`);
+		console.log(elements);
+		elements.forEach(elm => elm.classList.toggle("collapse"));
+	}
 </script>
 {#if !$locationData}
 	<div class="loading">
@@ -310,8 +317,10 @@
 				<summary tabindex="-1">
 					<div class="header">
 						<h2>{table_name.replaceAll('_', ' ')}</h2>
-						{#each Object.keys(table.columns) as col}
-							<p>{col.split('_').join(' ')}</p>
+						{#each Object.keys(table.columns) as col, idx}
+							<p><button 
+							class="headerButton" 
+							on:click={(e) => {hideColumn(e, idx)}}>{col.split('_').join(' ')}</button></p>
 						{/each}
 					</div>
 					</summary>
@@ -349,7 +358,7 @@
 														on:blur={(e) => updateValue(table_name, row_name, "cells", idx, e.target)}
 														on:focus={(e) => select(e.target)}>{format(cell.value, cell.type)}</p>
 												{:else}
-													<p>{format(cell.value, cell.type)}</p>
+													<p on:dblclick={(e) => {hideColumn(e, idx)}}>{format(cell.value, cell.type)}</p>
 												{/if}
 											{/each}
 										</div>
@@ -367,8 +376,7 @@
 												on:blur={(e) => updateValue(table_name, row_name, "cells", idx, e.target)}
 												on:focus={(e) => select(e.target)}>{format(cell.value, cell.type)}</p>
 										{:else}
-											<p>{format(cell.value, cell.type)}</p>
-											
+											<p on:dblclick={(e) => {hideColumn(e, idx)}}>{format(cell.value, cell.type)}</p>
 										{/if}
 									{/each}
 								</div>
@@ -383,6 +391,19 @@
 
 {/if}
 <style>
+	.collapse{
+		/*transform: rotateY(90deg);*/
+		visibility: hidden;
+	}
+
+	.headerButton{
+		background: none;
+		border: none;
+		padding: 0;
+		text-align: left;
+		text-transform: capitalize;
+		cursor: pointer;
+	}
 	.loading{
 		width: 100%;
 		height: 100vh;
