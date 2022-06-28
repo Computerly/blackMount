@@ -696,6 +696,13 @@
 		min-width: 0;
 		gap:  0.5rem;
 	}
+	/* .row:nth-child(odd){ background-color: rgba(0,0,0,0.1); } */
+	/* details:nth-child(odd){ background-color: rgba(0,0,0,0.1);} */
+	.body > *:nth-child(odd),
+	.body > details:nth-child(odd) summary,
+	details .row:nth-child(odd){
+		background-color: rgba(0,0,0,0.1);
+	}
 	*[contenteditable=true]{ font-weight: bold; }
 	.row p{ margin: 0.1rem 0; }
 	.row p:last-child:empty:before,
@@ -744,18 +751,26 @@
 		user-select: none;
 	}
 	details summary:hover{
-		background-color: lightgray;
+		outline: solid black 1px;
+		outline-offset: -1px;
+
+	}
+	.body details summary:hover{
+		outline:0;
+		cursor: pointer;
+		background-color: hsl(234, 48%, 52%) !important;
+		color:white;
+		/* background-color: red; */
 	}
 	.row.details p{	margin:  0; }
-	.table details.internal{ background-color: #C4C4C4; }
+
 	details summary {
 		list-style: none;
 		background-color: #EAEAEA;
 		cursor: pointer;
 		transform-origin: center center;
 	}
-	details[open].internal summary{ filter: brightness(0.8); }
-	details summary:focus { outline: none; }
+	details[open].internal summary{ background-color: #4a56bf; color:white;}
 	details > summary:hover:after{
 		content: url("icons/chevron_right.svg");
 		height: 1rem;
